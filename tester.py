@@ -79,6 +79,6 @@ for kernel in kernels:
                             end_time = time.time()
                             test_time = round(end_time - start_time, 4)
                             pr_str = 'P='+str(precision)+', R='+str(recall)
-                            test_results.append({'kernel': kernel, 'reference rows':int(ref), 'train rows':int(lines_trained), 'test rows':lines_to_test, 'part':part,'site':site,'P,R':pr_str, 'test time':test_time})
+                            test_results.append({'kernel': kernel, 'reference rows':int(ref), 'train rows':int(lines_trained), 'test rows':lines_to_test, 'part':part,'site':site,'P,R':pr_str, 'test time (in loop)':test_time})
 test_results_df = pd.DataFrame(test_results)
 test_results_df.to_csv('results.csv', index=False)

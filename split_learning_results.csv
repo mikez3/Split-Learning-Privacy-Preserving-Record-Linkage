@@ -1,4 +1,4 @@
-kernel,reference rows,train rows,test rows,part,site,"P,R",test time
+kernel,reference rows,train rows,test rows,part,site,"P,R",test time (in loop)
 linear,200,500,215,0,1,"P=0.9474, R=0.99",2.3594
 linear,200,500,215,0,2,"P=0.9431, R=0.995",0.1101
 linear,200,500,215,1,1,"P=0.9804, R=1.0",0.144

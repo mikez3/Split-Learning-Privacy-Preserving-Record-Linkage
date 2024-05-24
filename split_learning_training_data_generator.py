@@ -269,7 +269,7 @@ for part in range(3):
             trainB = dataB
             df = cudf.concat([test, trainA, trainB])
 
-            df.to_csv('/Data/'+csv_name, index=False, header=None, chunksize=100000)
+            df.to_csv('Data/'+csv_name, index=False, header=None, chunksize=100000)
             end_time = time.time()
             elapsed_time = end_time - start_time
             print(f"Elapsed time to create FL data: {elapsed_time} seconds")

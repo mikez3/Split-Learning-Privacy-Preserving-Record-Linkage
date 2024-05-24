@@ -49,7 +49,7 @@ for kernel in kernels:
                             model = joblib.load('./trained_models/shuffle/'+kernel+'/part'+str(part)+'_clean_ref_cosine_n'+lines_trained+'_ref'\
                                                 +ref+'.joblib')
                            
-                            data_path = '.Data/test_samples/part'+str(part)+'_'+metric+'_n'+str(lines_to_test)+'_ref'+ref+'.csv'
+                            data_path = 'Data/test_samples/part'+str(part)+'_'+metric+'_n'+str(lines_to_test)+'_ref'+ref+'.csv'
                             print('filepath =',data_path)
 
                             chunksize = 500000

@@ -10,7 +10,7 @@ This project investigates the application of Split Learning for Privacy-Preservi
 
 [`prepare_job_config.sh`](#prepare-clients-configs-with-proper-data-information): Generates the configuration files
 
-[`run_experiment_simulator.sh`](#run-experiment-with-fl-simulator): Runs the FL simulator
+<!-- [`run_experiment_simulator.sh`](#run-experiment-with-fl-simulator): Runs the FL simulator -->
 
 `test_data_generatror.py`: Responsible for the ( efficiently ) creation of test datasets
 

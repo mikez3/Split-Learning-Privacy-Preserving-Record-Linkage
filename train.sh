@@ -56,6 +56,7 @@ for dataset in "${datasets[@]}"; do
 	dataset_portion=${dataset_name::-4}
 	
 	# Define the new filename based on the dataset portion
+	# Adjust the part number for every part
 	model_new_filename_site1="site1_shuffle_part0_${dataset_portion}.joblib"
 	model_new_filename_site2="site2_shuffle_part0_${dataset_portion}.joblib"
 

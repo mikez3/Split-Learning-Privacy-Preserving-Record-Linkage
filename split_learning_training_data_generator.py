@@ -46,9 +46,9 @@ for part in range(3):
             start_time = time.time()
             ref = ref_original[:refrows]
             if isinstance(metric, str):
-                csv_name = 'part'+str(part+1)+'_clean_ref_'+metric+"_n"+str(nrows)+"_ref"+str(refrows)+".csv"
+                csv_name = 'part'+str(part)+'_clean_ref_'+metric+"_n"+str(nrows)+"_ref"+str(refrows)+".csv"
             elif callable(metric):
-                csv_name = 'part'+str(part+1)+'_clean_ref_'+str(metric.__name__)+"_n"+str(nrows)+"_ref"+str(refrows)+".csv"
+                csv_name = 'part'+str(part)+'_clean_ref_'+str(metric.__name__)+"_n"+str(nrows)+"_ref"+str(refrows)+".csv"
 
             # Shuffle the rows
             dfA = dfA_original.sample(frac=1, random_state=part)

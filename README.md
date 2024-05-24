@@ -1,7 +1,7 @@
-# Federated Learning approach for Privacy Preserving Record Linkage
+# Split Learning approach for Privacy Preserving Record Linkage
 <!-- > **Notice**: This project is currently under development. -->
 
-This project provides a privacy-preserving solution for record matching, eliminating the need for dataholders to transfer their data externally in any form. By leveraging a Federated Learning approach with Support Vector Machines and using a reference set, it achieves high-quality matching comparable to non-Federated Learning setups for plain record linkage.
+This project investigates the application of Split Learning for Privacy-Preserving Record Linkage, aiming to identify the same entity across different databases without compromising privacy, using Reference sets (publicly available data collections). This method has minimal impact on matching performance compared to a traditional centralized SVM-based approach.
 
 ## Quick info:
 [`split_learning_training_data_generator.py`](#data-generator): Generates data for training and testing. It also uses the `test_data_generatror.py`
@@ -30,9 +30,9 @@ For more detailed information about the framework, you may refer to the [Scikit-
 For faster execution times with large datasets, it is recommended to use [cuML](https://docs.rapids.ai/api/cuml/stable/). Alternatively, [Scikit-learn](https://scikit-learn.org/) can be used as a backend instead of cuML. -->
 
 
-## Prepare clients' configs with proper data information 
+## Train and save models 
 A script is used to automatically train and also create the configuration files for a specific setting.
-This script saves each model from split learning to trained_models/shuffle folder. Each part represents a different shuffle to the data.
+This script saves each model from split learning to `trained_models/shuffle` folder. Each part represents a different shuffle of the data.
 You can run the script with the following command:
 
 ```bash

@@ -6,7 +6,7 @@ This project investigates the application of Split Learning for Privacy-Preservi
 ## Quick info:
 [`split_learning_training_data_generator.py`](#data-generator): Generates data for training and testing. It also uses the `test_data_generatror.py`
 
-[`local_data_generator.py`](#data-generator): Generates data for local training (no Federated Learning here)
+[`local_data_generator.py`](#data-generator): Generates data for local training (no Split Learning here)
 
 [`prepare_job_config.sh`](#prepare-clients-configs-with-proper-data-information): Generates the configuration files
 

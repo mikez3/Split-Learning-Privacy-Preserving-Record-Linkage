@@ -27,12 +27,17 @@ print("Start time:", current_time)
 metric = 'cosine'
 kernels = ['linear', 'rbf']
 refs = ['200', '2000']
-trainings = ['2000', '5000']
-testings = [5000, 20000, 50000]
+trainings = ['500', '2000']
+testings_1 = [215, 2000, 5000, 10000]
+testings_2 = [858, 2000, 5000, 10000]
 test_results = []
 for kernel in kernels:
     for ref in refs:
         for lines_trained in trainings:
+            if lines_trained == '500':
+                testings = testings_1
+            else:
+                testings=testings_2
             for lines_to_test in testings:
                 for part in range(0,3):
                     for site in range(1,3):
@@ -41,14 +46,12 @@ for kernel in kernels:
                             print(kernel, ',lines trained:', lines_trained)
                             total_p = 0
                             total_r = 0
-                            if (kernel=='linear'):
-                                    model_name = 'trained_models/'+str(kernel)+'_c100_svm'+str(site)+'_round3_n'+lines_trained+'_ref'+ref+'_'+str(part)+'.joblib'
-                                    data_path = 'Data/n'+str(lines_to_test)+'_ref'+ref+'_'+str(part)+'.csv'
-                            else:
-                                    model_name = 'trained_models/'+str(kernel)+'_c0.01_svm'+str(site)+'_round3_n'+lines_trained+'_ref'+ref+'_'+str(part)+'.joblib'
-                                    data_path = 'Data/n'+str(lines_to_test)+'_ref'+ref+'_'+str(part)+'.csv'
+                            model = joblib.load('./trained_models/shuffle/'+kernel+'/part'+str(part)+'_clean_ref_cosine_n'+lines_trained+'_ref'\
+                                                +ref+'.joblib')
+                           
+                            data_path = 'Data/test_samples/part'+str(part)+'_'+metric+'_n'+str(lines_to_test)+'_ref'+ref+'.csv'
                             print('filepath =',data_path)
-                            model = joblib.load(model_name)
+
                             chunksize = 500000
                             csv_lines = lines_to_test**2
                             num_chunks = csv_lines // chunksize + 1
@@ -76,8 +79,6 @@ for kernel in kernels:
                             end_time = time.time()
                             test_time = round(end_time - start_time, 4)
                             pr_str = 'P='+str(precision)+', R='+str(recall)
-                            test_results.append({'kernel': kernel, 'reference rows':int(ref), 'train rows':int(lines_trained), 'test rows':lines_to_test, \
-                                                 'part':part,'site':site,'P':precision, 'R':recall, 'test time':test_time})
+                            test_results.append({'kernel': kernel, 'reference rows':int(ref), 'train rows':int(lines_trained), 'test rows':lines_to_test, 'part':part,'site':site,'P,R':pr_str, 'test time (in loop)':test_time})
 test_results_df = pd.DataFrame(test_results)
-print(test_results_df)
 test_results_df.to_csv('results.csv', index=False)

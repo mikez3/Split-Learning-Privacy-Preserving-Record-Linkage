@@ -41,6 +41,8 @@ for kernel in kernels:
                             print(kernel, ',lines trained:', lines_trained)
                             total_p = 0
                             total_r = 0
+                            model = joblib.load('./trained_models/'+kernel+'/part'+str(part)+'_clean_ref_cosine_n'+lines_trained+'_ref'\
+                                                +ref+'.joblib')
                             if (kernel=='linear'):
                                     model_name = 'trained_models/'+str(kernel)+'_c100_svm'+str(site)+'_round3_n'+lines_trained+'_ref'+ref+'_'+str(part)+'.joblib'
                                     data_path = 'Data/n'+str(lines_to_test)+'_ref'+ref+'_'+str(part)+'.csv'
@@ -48,7 +50,7 @@ for kernel in kernels:
                                     model_name = 'trained_models/'+str(kernel)+'_c0.01_svm'+str(site)+'_round3_n'+lines_trained+'_ref'+ref+'_'+str(part)+'.joblib'
                                     data_path = 'Data/n'+str(lines_to_test)+'_ref'+ref+'_'+str(part)+'.csv'
                             print('filepath =',data_path)
-                            model = joblib.load(model_name)
+
                             chunksize = 500000
                             csv_lines = lines_to_test**2
                             num_chunks = csv_lines // chunksize + 1
